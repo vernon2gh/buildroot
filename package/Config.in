@@ -2415,4 +2415,6 @@ menu "Text editors and viewers"
 	source "package/vim/Config.in"
 endmenu
 
+	source "package/helloworld/Config.in"
+
 endmenu
