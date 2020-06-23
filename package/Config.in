@@ -2416,5 +2416,6 @@ menu "Text editors and viewers"
 endmenu
 
 	source "package/helloworld/Config.in"
+	source "package/syscall/Config.in"
 
 endmenu
