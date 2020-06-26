@@ -11,6 +11,7 @@
 #define SYSCALL_INT2	438
 #define SYSCALL_STR1	439
 #define SYSCALL_ARRAY1	440
+#define SYSCALL_POINTER1	441
 
 void syscall_0(void)
 {
@@ -47,6 +48,13 @@ void syscall_array1(void)
 	syscall(SYSCALL_ARRAY1, p1);
 }
 
+void syscall_pointer1(void)
+{
+	int p1 = 6;
+
+	syscall(SYSCALL_POINTER1, &p1);
+}
+
 int main(int argc, char **argv)
 {
 	if(argc != 2)
@@ -63,6 +71,8 @@ int main(int argc, char **argv)
 		syscall_str1();
 	else if(!strcmp(argv[1], "array1"))
 		syscall_array1();
+	else if(!strcmp(argv[1], "pointer1"))
+		syscall_pointer1();
 	else
 		syscall_0();
 
