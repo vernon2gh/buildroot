@@ -10,6 +10,7 @@
 #define SYSCALL_INT1	437
 #define SYSCALL_INT2	438
 #define SYSCALL_STR1	439
+#define SYSCALL_ARRAY1	440
 
 void syscall_0(void)
 {
@@ -39,6 +40,13 @@ void syscall_str1(void)
 	printf("kernel to user: %s\n", p1);
 }
 
+void syscall_array1(void)
+{
+	int p1[3] = {3, 4, 5};
+
+	syscall(SYSCALL_ARRAY1, p1);
+}
+
 int main(int argc, char **argv)
 {
 	if(argc != 2)
@@ -53,6 +61,8 @@ int main(int argc, char **argv)
 		syscall_int2();
 	else if(!strcmp(argv[1], "str1"))
 		syscall_str1();
+	else if(!strcmp(argv[1], "array1"))
+		syscall_array1();
 	else
 		syscall_0();
 
