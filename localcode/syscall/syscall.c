@@ -5,8 +5,8 @@
 
 int main(int argc, char **argv)
 {
-	int long syscall_number;
-	int parameter_number, parameter1;
+	int long syscalln;
+	int parametern, p1, p2;
 
 	if(argc < 2)
 	{
@@ -14,17 +14,22 @@ int main(int argc, char **argv)
 		return -1;
 	}
 
-	syscall_number = atol(argv[1]);
-	parameter_number = argc - 2;
+	syscalln = atol(argv[1]);
+	parametern = argc - 2;
 
-	switch(parameter_number)
+	switch(parametern)
 	{
 		case 0:
-			syscall(syscall_number);
+			syscall(syscalln);
 			break;
 		case 1:
-			parameter1 = atoi(argv[2]);
-			syscall(syscall_number, parameter1);
+			p1 = atoi(argv[2]);
+			syscall(syscalln, p1);
+			break;
+		case 2:
+			p1 = atoi(argv[2]);
+			p2 = atoi(argv[3]);
+			syscall(syscalln, p1, p2);
 			break;
 		default:
 			printf("[ERROR]: parameter number err!\n");
