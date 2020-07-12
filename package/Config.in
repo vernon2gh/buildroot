@@ -1136,4 +1136,6 @@ source "package/vim/Config.in"
 endif
 endmenu
 
+source "package/syscall/Config.in"
+
 endmenu
